@@ -1,6 +1,4 @@
-# README
-
-## Complaint Management System Backend on Ruby on Rails
+# Complaint Management System Backend on Ruby on Rails
 
 ### Setup DB
-`rails db:migrate`
+```rails db:migrate```
