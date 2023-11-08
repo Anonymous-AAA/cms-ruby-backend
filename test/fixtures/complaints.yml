@@ -1,0 +1,19 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  description: MyText
+  date: MyString
+  remarks: MyText
+  status: MyString
+  location: MyString
+  committee_head: one
+
+two:
+  title: MyString
+  description: MyText
+  date: MyString
+  remarks: MyText
+  status: MyString
+  location: MyString
+  committee_head: two
