@@ -4,7 +4,7 @@ class CreateCommitteeHeads < ActiveRecord::Migration[7.1]
       t.string :name,null:false
       t.string :context,null:false
       t.string :email,null:false
-      t.string :password,null:false
+      t.string :password_digest,null:false
 
       t.timestamps
     end

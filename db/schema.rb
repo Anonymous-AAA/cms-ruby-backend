@@ -15,7 +15,7 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_08_105829) do
     t.string "name", null: false
     t.string "context", null: false
     t.string "email", null: false
-    t.string "password", null: false
+    t.string "password_digest", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_committee_heads_on_email", unique: true
@@ -49,7 +49,7 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_08_105829) do
     t.boolean "is_authorized", null: false
     t.string "designation", null: false
     t.string "email", null: false
-    t.string "password", null: false
+    t.string "password_digest", null: false
     t.bigint "committee_head_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -61,7 +61,7 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_08_105829) do
     t.string "name", null: false
     t.string "department", null: false
     t.string "email", null: false
-    t.string "password", null: false
+    t.string "password_digest", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
