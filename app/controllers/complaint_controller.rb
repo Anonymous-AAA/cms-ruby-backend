@@ -39,7 +39,7 @@ include JwtHelper
         params = request.path_parameters
         id= params[:id]
         puts "hello world"
-        puts id
+        puts "id: #{id}"
         user = request.env['current_user']
         role = request.env['role']
         if role == 'user'
@@ -88,6 +88,10 @@ include JwtHelper
           #Complaints: [] #
           #}
           #
+#for each complaint in complaints change committee_head_id to type using type_from_id
+
+
+
         render json: {
           Complaints: complaints
         }
@@ -100,11 +104,13 @@ include JwtHelper
         fetch_user
         params = request.path_parameters
         id= params[:id]
+        puts "show id: #{id}"
         user = request.env['current_user']
         role = request.env['role']
         if role == 'user'
-        complaint = Complaint.find_by(id: id)
-        render json: complaint
+            complaint = Complaint.find_by(id: id)
+            
+            render json: complaint
         else
             render json: { Response: 'Invalid Role' }, status: :bad_request
         end
