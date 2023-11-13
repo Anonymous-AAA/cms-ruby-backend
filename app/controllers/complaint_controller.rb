@@ -90,10 +90,23 @@ include JwtHelper
           #
 #for each complaint in complaints change committee_head_id to type using type_from_id
 
+        modified_complaints = complaints.map do |complaint|
+          {
+            id: complaint.id,
+            title: complaint.title,
+            description: complaint.description,
+            type: id_from_type(complaint.committee_head_id),
+            status: complaint.status,
+            remarks: complaint.remarks,
+            location: complaint.location,
+            created_at: complaint.created_at,
+            updated_at: complaint.updated_at
+          }
+        end
 
-
+        puts modified_complaints
         render json: {
-          Complaints: complaints
+          Complaints: modified_complaints
         }
         else
             render json: { Response: 'Invalid Role' }, status: :bad_request
@@ -109,8 +122,18 @@ include JwtHelper
         role = request.env['role']
         if role == 'user'
             complaint = Complaint.find_by(id: id)
-            
-            render json: complaint
+            modified_complaint = {
+              id: complaint.id,
+              title: complaint.title,
+              description: complaint.description,
+              type: id_from_type(complaint.committee_head_id),
+              status: complaint.status,
+              remarks: complaint.remarks,
+              location: complaint.location,
+              created_at: complaint.created_at,
+              updated_at: complaint.updated_at
+            }
+            render json: modified_complaint
         else
             render json: { Response: 'Invalid Role' }, status: :bad_request
         end
@@ -150,6 +173,21 @@ include JwtHelper
         4
       else
         5
+      end
+    end
+
+    def id_from_type(id)
+      case id
+      when 1
+        'Maintainence'
+      when 2
+        'Academic'
+      when 3
+        'Hostel'
+      when 4
+        'Other'
+      else
+        'Other'
       end
     end
 end
