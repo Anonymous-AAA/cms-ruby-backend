@@ -98,6 +98,7 @@ GEM
     irb (1.8.3)
       rdoc
       reline (>= 0.3.8)
+    jwt (2.7.1)
     loofah (2.21.4)
       crass (~> 1.0.2)
       nokogiri (>= 1.12.0)
@@ -190,6 +191,7 @@ DEPENDENCIES
   bcrypt
   bootsnap
   debug
+  jwt
   mysql2 (~> 0.5)
   puma (>= 5.0)
   rails (~> 7.1.1)
