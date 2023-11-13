@@ -33,7 +33,10 @@ class SessionsController < ApplicationController
 
     user = request.env['current_user']
     role = request.env['role']
-
+    id =request.env['id']
+    # get details of user from database using id
+user=User.find_by(id: id)
+    puts user
 
 
     user_data = {
